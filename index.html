@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Comparison: Java, C++, Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #999;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>การเปรียบเทียบ OOP ใน Java, C++, และ Python</h1>
+
+    <h2>ความเหมือน</h2>
+    <ul>
+        <li><strong>หลักการ OOP:</strong> ทุกภาษามีการใช้หลักการ OOP เช่น Class, Object, Encapsulation, Inheritance, Polymorphism และ Abstraction</li>
+        <li><strong>การใช้งาน Class และ Object:</strong> สร้างคลาสและออบเจกต์เพื่อจัดเก็บข้อมูลและพฤติกรรมได้</li>
+        <li><strong>การสืบทอด:</strong> สามารถใช้ Inheritance เพื่อสืบทอดคุณสมบัติจากคลาสหนึ่งไปยังอีกคลาสหนึ่ง</li>
+        <li><strong>การใช้ Constructors:</strong> มีการใช้ Constructors เพื่อกำหนดค่าเริ่มต้นสำหรับออบเจกต์</li>
+        <li><strong>Polymorphism:</strong> การสร้างเมธอดที่มีชื่อเดียวกันแต่ทำงานต่างกันได้</li>
+    </ul>
+
+    <h2>ความแตกต่าง</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>คุณสมบัติ</th>
+                <th>Java</th>
+                <th>C++</th>
+                <th>Python</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>การจัดการหน่วยความจำ</strong></td>
+                <td>ใช้ Garbage Collection</td>
+                <td>ผู้พัฒนาจัดการเองโดยใช้ new และ delete</td>
+                <td>ใช้ Garbage Collection และ reference counting</td>
+            </tr>
+            <tr>
+                <td><strong>การสืบทอดหลายคลาส (Multiple Inheritance)</strong></td>
+                <td>ไม่รองรับโดยตรง ใช้ Interfaces แทน</td>
+                <td>รองรับการสืบทอดหลายคลาส</td>
+                <td>รองรับการสืบทอดหลายคลาส</td>
+            </tr>
+            <tr>
+                <td><strong>ความเข้มงวดในการพิมพ์ตัวแปร</strong></td>
+                <td>Static Typing ต้องระบุตัวแปรชัดเจน</td>
+                <td>Static Typing ต้องระบุตัวแปรชัดเจน</td>
+                <td>Dynamic Typing ไม่ต้องระบุตัวแปรชัดเจน</td>
+            </tr>
+            <tr>
+                <td><strong>ความง่ายในการเขียน</strong></td>
+                <td>ต้องระบุชนิดตัวแปรชัดเจนและโครงสร้างเคร่งครัด</td>
+                <td>ต้องระบุชนิดตัวแปรและโครงสร้างซับซ้อนกว่า</td>
+                <td>ไวยากรณ์เรียบง่ายและกระชับกว่า</td>
+            </tr>
+            <tr>
+                <td><strong>การจัดการข้อยกเว้น (Exception Handling)</strong></td>
+                <td>ใช้ try-catch-finally</td>
+                <td>ใช้ try-catch ไม่บังคับให้จัดการข้อยกเว้น</td>
+                <td>ใช้ try-except-finally ไม่บังคับการจัดการข้อยกเว้น</td>
+            </tr>
+            <tr>
+                <td><strong>การทำงานร่วมกับโค้ดระดับล่าง</strong></td>
+                <td>ทำงานในระดับสูง ไม่เข้าถึงฮาร์ดแวร์โดยตรง</td>
+                <td>สามารถทำงานกับโค้ดระดับล่างได้ดี</td>
+                <td>ทำงานในระดับสูงเป็นหลัก</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>ตัวอย่างโค้ด</h2>
+
+    <h3>Java</h3>
+    <pre>
+class Animal {
+    String name;
+
+    Animal(String name) {
+        this.name = name;
+    }
+
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    Dog(String name) {
+        super(name);
+    }
+
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal dog = new Dog("Buddy");
+        dog.sound();
+    }
+}
+    </pre>
+
+    <h3>C++</h3>
+    <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+class Animal {
+public:
+    string name;
+    
+    Animal(string name) : name(name) {}
+
+    virtual void sound() {
+        cout &lt;&lt; "Animal makes sound" &lt;&lt; endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    Dog(string name) : Animal(name) {}
+
+    void sound() override {
+        cout &lt;&lt; "Dog barks" &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Animal* dog = new Dog("Buddy");
+    dog-&gt;sound();
+    delete dog;
+    return 0;
+}
+    </pre>
+
+    <h3>Python</h3>
+    <pre>
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def sound(self):
+        print("Animal makes sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog barks")
+
+dog = Dog("Buddy")
+dog.sound()
+    </pre>
+
+</body>
+</html>
